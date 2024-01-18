@@ -1,0 +1,13 @@
+{
+    "window.menuBarVisibility": "hidden",
+    
+    "editor.fontSize": 16,
+    "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', 'monospace', monospace",
+    "editor.minimap.enabled": false,
+    "editor.wordWrap": "on",
+
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.lineHeight": 1.2,
+    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font Mono', 'monospace', monospace",
+    "terminal.integrated.defaultProfile.linux": "zsh"
+}
