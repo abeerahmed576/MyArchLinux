@@ -1,5 +1,8 @@
 #!/bin/bash
 
+## Only for btrfs filesystem - Setting the corrent ID for @ subvolume
+#btrfs subvol set-default 256 /
+
 ## Using desired timezone
 region=Asia
 city=Dhaka
@@ -9,11 +12,17 @@ ln -sf /usr/share/zoneinfo/$region/$city /etc/localtime
 ## Syncing system to hardware clock using UTC format
 hwclock --systohc --utc
 
+## Setting BD mirror for pacman
+mirror_url="http://mirror.xeonbd.com/archlinux"
+
+echo "## Bangladesh" > /etc/pacman.d/mirrorlist
+echo "Server=$mirror_url/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
+
 ## Changing some pacman configuration using sed
-sed -i -e '/Color/s/#//' -e '/ParallelDownloads/s/#//' -e '/Color/a ILoveCandy' > /etc/pacman.conf
+sed -i -e '/Color/s/#//' -e '/ParallelDownloads/s/#//' -e '/Color/a ILoveCandy' /etc/pacman.conf
 
 ## Enabling Bangla(BD) and English(US) locale
-sed -i -e '/bn_BD/s/#//' -e '/en_US.UTF-8/s/#//' > /etc/locale.gen
+sed -i -e '/bn_BD/s/#//' -e '/en_US.UTF-8/s/#//' /etc/locale.gen
 
 locale-gen
 
@@ -46,7 +55,7 @@ root_uuid=$(blkid -o value -s UUID $root_part)
 machineID=$(cat /etc/machine-id)
 
 # The "rootflags" option is only needed for btrfs. If using ext2/3/4, remove this option.
-echo "root=UUID=$root_uuid rootflags=subvol=@ rw loglevel=3 systemd.machine_id=$machineID" > /etc/kernel/cmdline
+echo "root=UUID=$root_uuid rootflags=subvol=/@ rw loglevel=3 systemd.machine_id=$machineID" > /etc/kernel/cmdline
 
 ## Using kernel-install for placing kernel and initramsfs images at the required places for systemd-boot and automatic bootloader entry.
 kernel_vers=$(ls /usr/lib/modules)
