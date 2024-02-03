@@ -39,7 +39,6 @@ ffmpegthumbs
 firefox
 fsarchiver
 git
-grub
 gst-libav
 gst-plugin-pipewire
 gst-plugins-bad
@@ -72,7 +71,6 @@ libgsf
 libopenraw
 libwnck3
 libxcrypt-compat
-linux
 linux-firmware
 linux-headers
 logrotate
@@ -99,7 +97,6 @@ ntfs-3g
 ntp
 okular
 openssh
-os-prober
 pacman-contrib
 pacmanlogviewer
 partitionmanager
