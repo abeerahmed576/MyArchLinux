@@ -34,7 +34,7 @@ echo -e "\n127.0.0.1	localhost\n
 ## Installing additional packages (with KDE)
 pacman -Syy
 
-pkglist=/home/myArchLinux/pkglist.txt
+pkglist=/home/MyArchLinux/pkglist.txt
 pacman -S --needed - < $pkglist
 
 ## Installing systemd-boot
