@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Only for btrfs filesystem - Setting the corrent ID for @ subvolume
+## Only for btrfs filesystem - Setting the correct ID for @ subvolume
 #btrfs subvol set-default 256 /
 
 ## Using desired timezone
