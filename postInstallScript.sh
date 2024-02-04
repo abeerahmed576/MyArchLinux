@@ -76,7 +76,7 @@ passwd root
 
 ## Creating a user account and setting password for it
 username=abeer
-## Write full name in quotes
+# Write full name in quotes
 full_name="Abeer Ahmed"
 
 useradd -m -G wheel -c "$full_name" $username
