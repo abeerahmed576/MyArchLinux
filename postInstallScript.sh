@@ -29,7 +29,7 @@ locale-gen
 ## Setting English(US) as system language
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
-## Setting size 122 of terminus-font for tty
+## Setting size 122 of terminus-font for tty. The package "terminus-font" is needed to be installed for this.
 echo "FONT=ter-122n" > /etc/vconsole.conf
 
 ## Setting the hostname
@@ -71,17 +71,17 @@ for version in ${kernel_vers[@]}; do
 rm /boot/vmlinuz* /boot/initramfs*
 
 ## Setting password for root account
-echo "Password for Root"
+printf "\e[1;32mPassword for Root\e[0m\n"
 passwd root
 
-## Creating a user account and setting password for it
+## Creating a user account, adding the user to wheel group and setting password for the account
 username=abeer
 # Write full name in quotes
 full_name="Abeer Ahmed"
 
 useradd -m -G wheel -c "$full_name" $username
 
-echo "Password for $username"
+printf "\e[1;32mPassword for $username\e[0m\n"
 passwd $username
 
 ## Giving all memebers of wheel group privilege to execute any command
@@ -106,3 +106,6 @@ folders=$(ls /MyFiles)
 for folder in ${folders[@]}; do
     ln -s /MyFiles/"$folder" /home/$username
     done
+
+## Completion message
+printf "\e[1;32mDone! Now, if no other changes are left to make, exit the chroot, run \"umount -R /mnt\" and reboot.\e[0m\n"
