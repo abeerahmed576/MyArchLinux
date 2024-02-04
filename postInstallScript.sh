@@ -108,4 +108,4 @@ for folder in ${folders[@]}; do
     done
 
 ## Completion message
-printf "\e[1;32mDone! Now, if no other changes are left to make, exit the chroot, run \"umount -R /mnt\" and reboot.\e[0m\n"
+printf "\e[1;32mDone! Now, if no other changes left to make, exit the chroot, run \"umount -R /mnt\" and reboot.\e[0m\n"
