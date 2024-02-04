@@ -12,7 +12,7 @@ ln -sf /usr/share/zoneinfo/$region/$city /etc/localtime
 ## Syncing system to hardware clock using UTC format
 hwclock --systohc --utc
 
-## Setting BD mirror for pacman
+## Setting pacman BD mirror
 mirror_url="http://mirror.xeonbd.com/archlinux"
 
 echo "## Bangladesh" > /etc/pacman.d/mirrorlist
@@ -28,6 +28,9 @@ locale-gen
 
 ## Setting English(US) as system language
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
+
+## Setting size 122 of terminus-font for tty
+echo "FONT=ter-122n" > /etc/vconsole.conf
 
 ## Setting the hostname
 system_hostname=rajshahi-home
@@ -49,7 +52,7 @@ pacman -S --needed - < $pkglist
 ## Installing systemd-boot
 bootctl install
 
-## Defining minimum necessary kernel options in /etc/kernel/cmdline for kernel-install to use when making bootloader entries. This is also necessary for installation in a chroot as kernel-install will pick up kernel options of the live ISO's kernel which we dont' want.
+## Defining minimum necessary kernel options in /etc/kernel/cmdline for kernel-install to use when creating bootloader entries. This is also necessary for installation in a chroot as kernel-install will pick up kernel options of the live ISO's kernel which we don't want.
 root_part=$(bootctl -R)
 root_uuid=$(blkid -o value -s UUID $root_part)
 machineID=$(cat /etc/machine-id)
@@ -64,8 +67,8 @@ for version in ${kernel_vers[@]}; do
     kernel-install add "$version" /usr/lib/modules/"$version"/vmlinuz
     done
 
-## Cleanup /boot as kernel and initramsfs images created by mkinitcpio in this directory are useless for systemd-boot
-rm /boot/vmlinuz-linux* /boot/initramfs-linux*
+## Cleanup of /boot as kernel and initramsfs images created by mkinitcpio in this directory are useless for systemd-boot
+rm /boot/vmlinuz* /boot/initramfs*
 
 ## Setting password for root account
 echo "Password for Root"
@@ -101,5 +104,5 @@ systemctl enable upower
 folders=$(ls /MyFiles)
 
 for folder in ${folders[@]}; do
-    ln -s /MyFiles/"$folder" /home/$username/"$folder"
+    ln -s /MyFiles/"$folder" /home/$username
     done
