@@ -16,7 +16,7 @@ hwclock --systohc --utc
 mirror_url="http://mirror.xeonbd.com/archlinux"
 
 echo "## Bangladesh" > /etc/pacman.d/mirrorlist
-echo "Server=$mirror_url/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
+echo "Server=$mirror_url/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 
 ## Changing some pacman configuration using sed
 sed -i -e '/Color/s/#//' -e '/ParallelDownloads/s/#//' -e '/Color/a ILoveCandy' /etc/pacman.conf
