@@ -43,6 +43,12 @@ echo -e "\n127.0.0.1	localhost\n
 ::1		localhost\n
 127.0.0.1	$system_hostname" >> /etc/hosts
 
+## Masking pacman hooks for mkinitcpio as we'll be using kernel-install for systemd-boot
+mkdir -p /etc/pacman.d/hooks
+
+ln -s /dev/null /etc/pacman.d/hooks/60-mkinitcpio-remove.hook
+ln -s /dev/null /etc/pacman.d/hooks/90-mkinitcpio-install.hook
+
 ## Installing additional packages (with KDE)
 pacman -Syy
 
