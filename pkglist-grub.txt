@@ -16,7 +16,6 @@ bind
 breeze-gtk
 btop
 cantarell-fonts
-cronie
 dbus-python
 dhclient
 dmidecode
@@ -125,6 +124,7 @@ s-nail
 sddm-kcm
 sg3_utils
 smartmontools
+snapper
 sof-firmware
 solid5
 spectacle
