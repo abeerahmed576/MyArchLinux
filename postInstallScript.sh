@@ -107,10 +107,10 @@ systemctl enable upower
 #systemctl enable firewalld
 
 ## Making links of folders in personal files partition to ~/
-folders=$(ls /MyFiles)
+folders=$(ls /MyHome)
 
 for folder in ${folders[@]}; do
-    ln -s /MyFiles/"$folder" /home/$username
+    ln -s /MyHome/"$folder" /home/$username
     done
 
 ## Completion message
