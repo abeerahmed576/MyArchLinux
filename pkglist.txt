@@ -15,6 +15,7 @@ bash-completion
 bind
 breeze-gtk
 btop
+btrfs-progs
 cantarell-fonts
 dbus-python
 dhclient
@@ -57,7 +58,6 @@ kate
 kcalc
 kde-gtk-config
 kdeplasma-addons
-khotkeys
 kinfocenter
 kinit
 kio-fuse
@@ -107,7 +107,6 @@ plasma-desktop
 plasma-disks
 plasma-nm
 plasma-pa
-plasma-wayland-session
 poppler-glib
 power-profiles-daemon
 powerdevil
@@ -123,6 +122,7 @@ s-nail
 sddm-kcm
 sg3_utils
 smartmontools
+snapper
 sof-firmware
 solid5
 spectacle
