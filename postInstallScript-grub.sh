@@ -87,11 +87,11 @@ systemctl enable upower
 #systemctl enable firewalld
 
 ## Making links of folders in personal files partition to ~/
-folders=$(ls /MyHome)
+#folders=$(ls /MyHome)
 
-for folder in ${folders[@]}; do
-    ln -s /MyHome/"$folder" /home/$username
-    done
+#for folder in ${folders[@]}; do
+#    ln -s /MyHome/"$folder" /home/$username
+#    done
 
 ## Completion message
 printf "\e[1;32mDone! Now, if no other changes left to make, exit the chroot, run \"umount -R /mnt\" and reboot.\e[0m\n"
