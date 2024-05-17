@@ -196,15 +196,3 @@ zsh-autosuggestions
 zsh-completions
 zsh-history-substring-search
 zsh-syntax-highlighting
-fcitx5-openbangla-git
-freedownloadmanager
-freedownloadmanager-debug
-github-desktop
-github-desktop-debug
-google-chrome
-openbangla-keyboard-git
-pacman-hook-kernel-install
-visual-studio-code-bin
-visual-studio-code-bin-debug
-yay
-yay-debug
