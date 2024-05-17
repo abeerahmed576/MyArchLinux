@@ -85,6 +85,7 @@ kpty5
 kscreen
 ktexteditor5
 kunitconversion5
+kwallet-pam
 kwalletmanager
 kwayland5
 less
