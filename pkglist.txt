@@ -30,6 +30,7 @@ ethtool
 exfatprogs
 extra-cmake-modules
 f2fs-tools
+fastfetch
 fcitx5
 fcitx5-configtool
 fcitx5-gtk
@@ -83,6 +84,7 @@ kpeople5
 kplotting5
 kpty5
 kscreen
+ksshaskpass
 ktexteditor5
 kunitconversion5
 kwallet-pam
@@ -101,6 +103,7 @@ lsscsi
 lvm2
 man-db
 man-pages
+markdownpart
 mdadm
 mesa-utils
 mlocate
@@ -108,12 +111,12 @@ modemmanager
 modemmanager-qt5
 mtools
 nano
-neofetch
 netctl
 networkmanager
 networkmanager-qt5
 nfs-utils
 nilfs-utils
+nodejs-lts-iron
 noto-fonts
 nss-mdns
 ntfs-3g
