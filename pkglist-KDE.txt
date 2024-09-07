@@ -6,6 +6,10 @@ breeze-gtk
 breeze5
 cantarell-fonts
 dolphin
+fcitx5
+fcitx5-configtool
+fcitx5-gtk
+fcitx5-qt
 ffmpegthumbnailer
 ffmpegthumbs
 gwenview
