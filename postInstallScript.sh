@@ -49,11 +49,15 @@ mkdir -p /etc/pacman.d/hooks
 ln -s /dev/null /etc/pacman.d/hooks/60-mkinitcpio-remove.hook
 ln -s /dev/null /etc/pacman.d/hooks/90-mkinitcpio-install.hook
 
-## Installing additional packages (with KDE)
+## Installing necessary packages
 pacman -Syy
 
 pkglist=/home/MyArchLinux/pkglist.txt
+#pkglist_kde=/home/MyArchLinux/pkglist-KDE.txt
+
 pacman -S --needed - < $pkglist
+#pacman -S --needed - < $pkglist_kde  # For KDE
+pacman -S --needed cosmic  # For Cosmic DE
 
 ## Installing systemd-boot
 bootctl install
@@ -93,18 +97,22 @@ passwd $username
 ## Giving all memebers of wheel group privilege to execute any command
 echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/all-for-wheel
 
-## Enabling necessary systemd services
+## Enabling necessary background services
 systemctl enable avahi-daemon
 systemctl enable haveged.service
 #systemctl enable bluetooth.service
 #systemctl enable cups.service
 systemctl enable fstrim.timer
-systemctl enable sddm.service
 systemctl enable NetworkManager
 systemctl enable upower
 #systemctl enable sshd
 #systemctl enable reflector.timer
 #systemctl enable firewalld
+systemctl enable systemd-boot-update.service
+#systemctl enable snapper-timeline.timer
+#systemctl enable snapper-cleanup.timer
+#systemctl enable sddm.service  # For KDE
+systemctl enable cosmic-greeter.service  # For Cosmic DE
 
 ## Making links of folders in personal files partition to ~/
 #folders=$(ls /MyHome)
