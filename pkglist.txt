@@ -21,10 +21,6 @@ exfatprogs
 extra-cmake-modules
 f2fs-tools
 fastfetch
-fcitx5
-fcitx5-configtool
-fcitx5-gtk
-fcitx5-qt
 firefox
 flatpak
 fsarchiver
