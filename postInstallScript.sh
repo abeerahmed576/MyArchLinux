@@ -60,7 +60,7 @@ pacman -S --needed - < $pkglist
 #pacman -S --needed cosmic  # For Cosmic DE
 
 ## Installing systemd-boot
-bootctl -efi-boot-option-description="Arch Linux" install
+bootctl --efi-boot-option-description="Arch Linux" install
 
 ## Defining minimum necessary kernel options in /etc/kernel/cmdline for kernel-install to use when creating bootloader entries. This is also necessary for installation in a chroot as kernel-install will pick up kernel options of the live ISO's kernel which we don't want.
 root_part=$(bootctl -R)
