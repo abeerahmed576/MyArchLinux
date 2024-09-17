@@ -29,10 +29,10 @@ gst-libav
 gst-plugin-pipewire
 gst-plugins-bad
 gst-plugins-ugly
-gtkmm3
-gtkmm-4.0
 gtk3
 gtk4
+gtkmm3
+gtkmm-4.0
 haveged
 hdparm
 htop
