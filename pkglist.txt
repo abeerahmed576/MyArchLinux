@@ -104,6 +104,7 @@ upower
 usb_modeswitch
 usbutils
 vi
+vulkan-radeon
 wget
 wireplumber
 wpa_supplicant
