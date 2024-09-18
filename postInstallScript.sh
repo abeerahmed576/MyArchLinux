@@ -3,20 +3,25 @@
 ## Only for btrfs filesystem - Setting the correct ID for @ subvolume
 #btrfs subvol set-default 256 /
 
-## Using desired timezone
-region=Asia
-city=Dhaka
+##### Variables Section #####
+region=Asia  # For time zone
+city=Dhaka  # For time zone
+system_lang=en_US.UTF-8
+mirror_url="http://mirror.xeonbd.com/archlinux/\$repo/os/\$arch"
+system_hostname=rajshahi-home
+username=abeer
+full_name="Abeer Ahmed"  # Write full name in quotes
+##### Variables Section #####
 
+## Using desired timezone
 ln -sf /usr/share/zoneinfo/$region/$city /etc/localtime
 
 ## Syncing system to hardware clock using UTC format
 hwclock --systohc --utc
 
 ## Setting pacman BD mirror
-mirror_url="http://mirror.xeonbd.com/archlinux"
-
 echo "## Bangladesh" > /etc/pacman.d/mirrorlist
-echo "Server=$mirror_url/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
+echo "Server=$mirror_url" >> /etc/pacman.d/mirrorlist
 
 ## Changing some pacman configuration using sed
 sed -i -e '/Color/s/#//' -e '/ParallelDownloads/s/#//' -e '/Color/a ILoveCandy' /etc/pacman.conf
@@ -27,14 +32,12 @@ sed -i -e '/bn_BD/s/#//' -e '/en_US.UTF-8/s/#//' /etc/locale.gen
 locale-gen
 
 ## Setting English(US) as system language
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
+echo "LANG=$system_lang" > /etc/locale.conf
 
 ## Setting size 122 of terminus-font for tty. The package "terminus-font" is needed to be installed for this.
 echo "FONT=ter-122n" > /etc/vconsole.conf
 
 ## Setting the hostname
-system_hostname=rajshahi-home
-
 echo $system_hostname > /etc/hostname
 
 ## Configuring for localhost
@@ -85,11 +88,7 @@ printf "\e[1;32mPassword for Root\e[0m\n"
 passwd root
 
 ## Creating a user account, adding the user to wheel group and setting password for the account
-username=abeer
-# Write full name in quotes
-full_name="Abeer Ahmed"
-
-useradd -m -G wheel -c "$full_name" $username
+useradd -m -G wheel -c "$full_name" -s /usr/bin/zsh $username
 
 printf "\e[1;32mPassword for $username\e[0m\n"
 passwd $username
