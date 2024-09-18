@@ -61,6 +61,7 @@ pkglist=/home/MyArchLinux/pkglist.txt
 pacman -S --needed - < $pkglist
 #pacman -S --needed - < $pkglist_kde  # For KDE
 #pacman -S --needed cosmic  # For Cosmic DE
+#pacman -S --needed gnome  # For Gnome DE
 
 ## Installing systemd-boot
 bootctl --efi-boot-option-description="Arch Linux" install
