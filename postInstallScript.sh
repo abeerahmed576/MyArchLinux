@@ -6,7 +6,7 @@
 ##### Variables Section #####
 region=Asia  # For time zone
 city=Dhaka  # For time zone
-system_lang=en_US.UTF-8
+system_lang="en_US.UTF-8"
 mirror_url="http://mirror.xeonbd.com/archlinux/\$repo/os/\$arch"
 system_hostname=rajshahi-home
 username=abeer
