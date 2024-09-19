@@ -22,7 +22,7 @@ hwclock --systohc --utc
 
 ## Setting pacman BD mirror
 echo -e "## Bangladesh\n
-		 Server=$mirror_url" > /etc/pacman.d/mirrorlist
+Server=$mirror_url" > /etc/pacman.d/mirrorlist
 
 ## Changing some pacman configuration using sed
 sed -i -e '/Color/s/#//' -e '/ParallelDownloads/s/#//' -e '/Color/a ILoveCandy' /etc/pacman.conf
