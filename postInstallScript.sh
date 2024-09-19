@@ -9,6 +9,7 @@ city=Dhaka  # For time zone
 system_lang="en_US.UTF-8"
 mirror_url="http://mirror.xeonbd.com/archlinux/\$repo/os/\$arch"
 system_hostname=rajshahi-home
+os_name="Arch Linux"
 username=abeer
 full_name="Abeer Ahmed"  # Write full name in quotes
 ##### Variables Section #####
@@ -64,7 +65,7 @@ pacman -S --needed - < $pkglist
 #pacman -S --needed gnome  # For Gnome DE
 
 ## Installing systemd-boot
-bootctl --efi-boot-option-description="Arch Linux" install
+bootctl --efi-boot-option-description="$os_name" install
 
 ## Defining minimum necessary kernel options in /etc/kernel/cmdline for kernel-install to use when creating bootloader entries. This is also necessary for installation in a chroot as kernel-install will pick up kernel options of the live ISO's kernel which we don't want.
 root_part=$(bootctl -R)
@@ -113,6 +114,7 @@ systemctl enable systemd-boot-update.service
 #systemctl enable snapper-cleanup.timer
 #systemctl enable sddm.service  # For KDE
 #systemctl enable cosmic-greeter.service  # For Cosmic DE
+#systemctl enable gdm.service  # For Gnome DE
 
 ## Making links of folders in personal files partition to ~/
 #folders=$(ls /MyHome)
