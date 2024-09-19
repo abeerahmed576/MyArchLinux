@@ -21,8 +21,8 @@ ln -sf /usr/share/zoneinfo/$region/$city /etc/localtime
 hwclock --systohc --utc
 
 ## Setting pacman BD mirror
-echo "## Bangladesh" > /etc/pacman.d/mirrorlist
-echo "Server=$mirror_url" >> /etc/pacman.d/mirrorlist
+echo -e "## Bangladesh\n
+		 Server=$mirror_url" > /etc/pacman.d/mirrorlist
 
 ## Changing some pacman configuration using sed
 sed -i -e '/Color/s/#//' -e '/ParallelDownloads/s/#//' -e '/Color/a ILoveCandy' /etc/pacman.conf
