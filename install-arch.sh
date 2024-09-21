@@ -42,7 +42,7 @@ mount -o umask=0077 $efi_part /mnt/efi
 mount -o umask=0077 $boot_part /mnt/boot
 
 ## Setting Pacman mirror
-echo -e "## Bangladesh\n
+echo "## Bangladesh
 Server=http://mirror.xeonbd.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 
 ## Installing base packages
