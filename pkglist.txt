@@ -102,6 +102,7 @@ unrar
 unzip
 upower
 usb_modeswitch
+usbmuxd
 usbutils
 vi
 vulkan-radeon
