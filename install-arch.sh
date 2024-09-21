@@ -6,8 +6,8 @@ btrfs_subvols=@home,@root,@tmp,@log,@cache,@snapshots
 btrfs_subvols_mountpoints=home,root,tmp,var/log,var/cache,.snapshots
 
 ## Formatting partitions
-# mkfs.fat -F 32 -n EFI $efi_part
-# mkfs.fat -F 32 -n BOOT $boot_part
+#mkfs.fat -F 32 -n EFI $efi_part
+#mkfs.fat -F 32 -n BOOT $boot_part
 mkfs.btrfs -f -L "$root_part_label" $root_part
 
 ## Mounting Root partition and creating specified subvolumes
@@ -38,15 +38,15 @@ for i in "${!btrfs_subvols_array[@]}"; do
 done
 
 ## Mounting EFI and BOOT partition
-# mount -o umask=0077 $efi_part /mnt/efi
-# mount -o umask=0077 $boot_part /mnt/boot
+mount -o umask=0077 $efi_part /mnt/efi
+mount -o umask=0077 $boot_part /mnt/boot
 
 ## Setting Pacman mirror
-# echo -e "## Bangladesh\n
-# Server=http://mirror.xeonbd.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+echo -e "## Bangladesh\n
+Server=http://mirror.xeonbd.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 
 ## Installing base packages
-pacstrap -Kic /mnt base base-devel git nano reflector rsync
+pacstrap -Ki /mnt base base-devel git nano reflector rsync
 
 ## Generating File System table
 genfstab -U /mnt >> /mnt/etc/fstab
