@@ -47,7 +47,7 @@ done
 ## Mounting EFI, BOOT and other desired partitions
 mount -o umask=0077 $efi_part /mnt/efi
 mount -o umask=0077 $boot_part /mnt/boot
-mount -o defaults,noatime $myhome_part /mnt/
+mount -o defaults,noatime $myhome_part /mnt/$myhome_part_mountpoint
 
 ## Setting Pacman mirror
 echo "## Bangladesh
