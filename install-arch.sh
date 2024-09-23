@@ -9,6 +9,8 @@ btrfs_subvols_mountpoints=home,root,tmp,var/log,var/cache,.snapshots
 
 myhome_part=/dev/nvme0n1p6
 myhome_part_mountpoint=MyHome
+
+mirror_url="http://mirror.xeonbd.com/archlinux"
 ##### Variables Section #####
 
 ## Formatting partitions
@@ -49,9 +51,9 @@ mount -o umask=0077 $efi_part /mnt/efi
 mount -o umask=0077 $boot_part /mnt/boot
 mount -o defaults,noatime $myhome_part /mnt/$myhome_part_mountpoint
 
-## Setting Pacman mirror
+## Setting pacman BD mirror
 echo "## Bangladesh
-Server=http://mirror.xeonbd.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+Server=$mirror_url/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 
 ## Enabling Color and ParallelDownloads options, disabling "core" and "extra" repo (So that pacman doesn't fail on the default repositories ) and enabling custom offline repo
 #sed -e '/Color/s/#//' -e '/ParallelDownloads/s/#//' -e '/\[core\]/{s/^/#/; n; s/^/#/}' -e '/\[extra\]/{s/^/#/; n; s/^/#/}' -e "/\[custom\]/{s/#//; n; s/#//; n; s|.*|Server = file:///mnt/${myhome_part_mountpoint}/arch-pkgs/|}" /etc/pacman.conf

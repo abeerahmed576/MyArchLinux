@@ -7,7 +7,7 @@
 region=Asia  # For time zone
 city=Dhaka  # For time zone
 system_lang="en_US.UTF-8"
-mirror_url="http://mirror.xeonbd.com/archlinux/\$repo/os/\$arch"
+mirror_url="http://mirror.xeonbd.com/archlinux"
 offine_install_config="--config pacman.conf"
 system_hostname=rajshahi-home
 os_name="Arch Linux"
@@ -22,8 +22,8 @@ ln -sf /usr/share/zoneinfo/$region/$city /etc/localtime
 hwclock --systohc --utc
 
 ## Setting pacman BD mirror
-echo -e "## Bangladesh\n
-Server=$mirror_url" > /etc/pacman.d/mirrorlist
+echo "## Bangladesh
+Server=$mirror_url/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 
 ## Changing some pacman configuration using sed
 sed -i -e '/Color/s/#//' -e '/ParallelDownloads/s/#//' -e '/Color/a ILoveCandy' /etc/pacman.conf
