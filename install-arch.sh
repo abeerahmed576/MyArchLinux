@@ -1,8 +1,8 @@
 ##### Variables Section #####
 efi_part=/dev/nvme0n1p1
 boot_part=/dev/nvme0n1p2
-root_part=/dev/nvme0n1p5
-root_part_label="Arch Cosmic"
+root_part=/dev/nvme0n1p3
+root_part_label="Arch"
 
 btrfs_subvols=@home,@root,@tmp,@log,@cache,@snapshots
 btrfs_subvols_mountpoints=home,root,tmp,var/log,var/cache,.snapshots
@@ -66,7 +66,7 @@ SigLevel = Optional TrustAll
 Server = file:///mnt/MyHome/arch-pkgs/" >> /etc/pacman.conf
 
 ## Installing base packages
-pacstrap -Ki /mnt base base-devel
+pacstrap -Ki /mnt base base-devel git nano
 
 ## Generating File System table
 genfstab -U /mnt >> /mnt/etc/fstab

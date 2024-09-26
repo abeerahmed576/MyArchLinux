@@ -1,18 +1,16 @@
 #!/bin/bash
 
-## Only for btrfs filesystem - Setting the correct ID for @ subvolume
-#btrfs subvol set-default 256 /
-
 ##### Variables Section #####
 region=Asia  # For time zone
 city=Dhaka  # For time zone
 system_lang="en_US.UTF-8"
 mirror_url="http://mirror.xeonbd.com/archlinux"
-offine_install_config="--config pacman.conf"
 system_hostname=rajshahi-home
 os_name="Arch Linux"
 username=abeer
 full_name="Abeer Ahmed"  # Write full name in quotes
+
+offine_install_config="--config pacman-offline.conf"
 ##### Variables Section #####
 
 ## Using desired timezone
@@ -125,12 +123,15 @@ systemctl enable systemd-boot-update.service
 #systemctl enable cosmic-greeter.service  # For Cosmic DE
 #systemctl enable gdm.service  # For Gnome DE
 
-## Making links of folders in personal files partition to ~/
+## Making links to folders in personal files partition in ~/
 #readarray -t folders < <(ls /MyHome)
 
 #for folder in "${folders[@]}"; do
 #    ln -s /MyHome/$folder /home/$username
 #done
+
+## Only for btrfs filesystem - Setting the correct ID for @ subvolume
+btrfs subvol set-default 256 /
 
 ## Completion message
 printf "\e[1;32mDone! Now, if no other changes left to make, exit the chroot, run \"umount -R /mnt\" and reboot.\e[0m\n"
